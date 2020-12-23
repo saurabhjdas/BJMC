@@ -11,7 +11,7 @@ const results = require('./Routes/Results');
 const res_id = require("./Routes/Result-ID");
 const res_yr = require("./Routes/Result-Year");
 
-const CONNECTION_URL = "mongodb+srv://superuser:SuperUser@1@cluster0.swq1f.mongodb.net/hospital_db?retryWrites=true&w=majority"
+const CONNECTION_URL = "mongodb+srv://*******:*******@1@cluster0.swq1f.mongodb.net/hospital_db?retryWrites=true&w=majority"
 const DATABASE_NAME = "hospital_db";
 
 var app = Express();
