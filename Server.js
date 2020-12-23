@@ -28,7 +28,7 @@ app.listen(8000, () => {
         }
         database = client.db(DATABASE_NAME);
         collection1 = database.collection("teaching_staff");
-       // collection2 = database.collection("anti_raging_comittee");
+        collection2 = database.collection("anti_raging_comittee");
         collection3 = database.collection("nonteaching_staff");
         collection4 = database.collection("resources");
         collection5 = database.collection("results");
