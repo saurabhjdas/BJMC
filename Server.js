@@ -12,7 +12,7 @@ const res_id = require("./Routes/Result-ID");
 const res_yr = require("./Routes/Result-Year");
 const research_publications = require('./Routes/Research-Publications');
 
-const CONNECTION_URL = "mongodb+srv://view_user:ViewOnly@cluster0.swq1f.mongodb.net/hospital_db"
+const CONNECTION_URL = "mongodb+srv://******:******@cluster0.swq1f.mongodb.net/hospital_db"
 const DATABASE_NAME = "hospital_db";
 
 var app = Express();
