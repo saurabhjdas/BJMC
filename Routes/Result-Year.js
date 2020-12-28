@@ -19,7 +19,6 @@ const res_yr = (request, response) => {
           {
               '$project':{
                   'student_results._id':1,
-                  'year_id':'$userObjectId' ,
                   "course":1,
                   "year":1,
                   "batch":1,

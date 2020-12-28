@@ -10,11 +10,14 @@ const resources = require('./Routes/Resources');
 const results = require('./Routes/Results');
 const res_id = require("./Routes/Result-ID");
 const res_yr = require("./Routes/Result-Year");
+const research_publications = require('./Routes/Research-Publications');
 
-const CONNECTION_URL = "mongodb+srv://*******:*******@1@cluster0.swq1f.mongodb.net/hospital_db?retryWrites=true&w=majority"
+const CONNECTION_URL = "mongodb+srv://view_user:ViewOnly@cluster0.swq1f.mongodb.net/hospital_db"
 const DATABASE_NAME = "hospital_db";
 
 var app = Express();
+var cors = require('cors')
+
 
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
@@ -28,11 +31,12 @@ app.listen(8000, () => {
         }
         database = client.db(DATABASE_NAME);
         collection1 = database.collection("teaching_staff");
-        collection2 = database.collection("anti_raging_comittee");
+        collection2 = database.collection("anti_ragging_comittee");
         collection3 = database.collection("nonteaching_staff");
         collection4 = database.collection("resources");
         collection5 = database.collection("results");
         collection6 = database.collection("result_year");
+        collection7 = database.collection("research_publications");
         console.log("Connected to `" + DATABASE_NAME + "`!");
     });
 
@@ -58,7 +62,13 @@ app.listen(8000, () => {
     // http://localhost:8000/Results/Seat_No
     app.get("/Results/:seat_number", res_id.res_id);
     
+    // http://localhost:8000/Resultsbycourse/course
+    app.get("/Resultsbycourse/:seat_number", res_id.res_course );
+
     //http://localhost:8000/Results_Year/
     app.get("/Results_Year/", res_yr.res_yr);
+    
+    //http://localhost:8000/Research_publications/
+    app.get("/Research_Publications/", research_publications.Research_Publications);
 });
 
