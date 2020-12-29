@@ -11,8 +11,9 @@ const results = require('./Routes/Results');
 const res_id = require("./Routes/Result-ID");
 const res_yr = require("./Routes/Result-Year");
 const research_publications = require('./Routes/Research-Publications');
+const organogram = require('./Routes/organogram');
 
-const CONNECTION_URL = "mongodb+srv://******:******@cluster0.swq1f.mongodb.net/hospital_db"
+const CONNECTION_URL = "mongodb+srv://*****:*****@cluster0.swq1f.mongodb.net/hospital_db"
 const DATABASE_NAME = "hospital_db";
 
 var app = Express();
@@ -37,6 +38,7 @@ app.listen(8000, () => {
         collection5 = database.collection("results");
         collection6 = database.collection("result_year");
         collection7 = database.collection("research_publications");
+        collection8 = database.collection("organogram");
         console.log("Connected to `" + DATABASE_NAME + "`!");
     });
 
@@ -70,5 +72,8 @@ app.listen(8000, () => {
     
     //http://localhost:8000/Research_publications/
     app.get("/Research_Publications/", research_publications.Research_Publications);
+    
+    //http://localhost:8000/Research_publications/
+    app.get("/organogram/", organogram.organogram);
 });
 
