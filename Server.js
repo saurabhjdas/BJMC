@@ -13,7 +13,7 @@ const res_yr = require("./Routes/Result-Year");
 const research_publications = require('./Routes/Research-Publications');
 const organogram = require('./Routes/organogram');
 
-const CONNECTION_URL = "mongodb+srv://*****:*****@cluster0.swq1f.mongodb.net/hospital_db"
+const CONNECTION_URL = "mongodb+srv://******:******@cluster0.swq1f.mongodb.net/hospital_db"
 const DATABASE_NAME = "hospital_db";
 
 var app = Express();
@@ -22,6 +22,7 @@ var cors = require('cors')
 
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
+app.use(cors())
 
 var database;
 
@@ -60,6 +61,9 @@ app.listen(8000, () => {
    
     // http://localhost:8000/Results
     app.get("/Results", results.results);
+
+    // http://localhost:8000/Results/course
+    app.get("/Results/:course", results.res_course);
 
     // http://localhost:8000/Results/Seat_No
     app.get("/Results/:seat_number", res_id.res_id);
